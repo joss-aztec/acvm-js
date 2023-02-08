@@ -1,44 +1,40 @@
 import { BlackBoxFunc } from "./blackbox_func";
+import { FieldElement } from "./field_element";
 
-export interface BlackboxSolvers<TFieldElement> {
-  //   [BlackBoxFunc.AES]?: () => never;
+export interface BlackboxSolvers {
   [BlackBoxFunc.AND]?: (
-    x1: TFieldElement,
-    x2: TFieldElement
-  ) => Promise<TFieldElement>;
+    x1: FieldElement,
+    x2: FieldElement
+  ) => Promise<FieldElement>;
 
   [BlackBoxFunc.XOR]?: (
-    x1: TFieldElement,
-    x2: TFieldElement
-  ) => Promise<TFieldElement>;
+    x1: FieldElement,
+    x2: FieldElement
+  ) => Promise<FieldElement>;
 
   //   [BlackBoxFunc.RANGE]?: () => void;
 
-  [BlackBoxFunc.SHA256]?: (xs: TFieldElement[]) => Promise<TFieldElement[]>;
+  [BlackBoxFunc.SHA256]?: (xs: FieldElement[]) => Promise<FieldElement[]>;
 
-  [BlackBoxFunc.Blake2s]?: (xs: TFieldElement[]) => Promise<TFieldElement[]>;
+  [BlackBoxFunc.Blake2s]?: (xs: FieldElement[]) => Promise<FieldElement[]>;
 
   [BlackBoxFunc.MerkleMembership]?: (
-    xs: TFieldElement[]
-  ) => Promise<TFieldElement>;
+    xs: FieldElement[]
+  ) => Promise<FieldElement>;
 
-  [BlackBoxFunc.SchnorrVerify]?: (
-    xs: TFieldElement[]
-  ) => Promise<TFieldElement>;
+  [BlackBoxFunc.SchnorrVerify]?: (xs: FieldElement[]) => Promise<FieldElement>;
 
   [BlackBoxFunc.Pedersen]?: (
-    xs: TFieldElement[]
-  ) => Promise<[TFieldElement, TFieldElement]>;
+    xs: FieldElement[]
+  ) => Promise<[FieldElement, FieldElement]>;
 
   [BlackBoxFunc.HashToField128Security]?: (
-    xs: TFieldElement[]
-  ) => Promise<TFieldElement>;
+    xs: FieldElement[]
+  ) => Promise<FieldElement>;
 
-  [BlackBoxFunc.EcdsaSecp256k1]?: (
-    xs: TFieldElement[]
-  ) => Promise<TFieldElement>;
+  [BlackBoxFunc.EcdsaSecp256k1]?: (xs: FieldElement[]) => Promise<FieldElement>;
 
   [BlackBoxFunc.FixedBaseScalarMul]?: (
-    xs: TFieldElement
-  ) => Promise<[TFieldElement, TFieldElement]>;
+    xs: FieldElement
+  ) => Promise<[FieldElement, FieldElement]>;
 }
