@@ -1,11 +1,24 @@
 {
-  "name": "acir",
+  "name": "acvm",
   "version": "1.0.0",
   "description": "JS tooling for ACIR",
-  "main": "index.js",
+  "main": "dist/acvm.cjs.js",
+  "module": "dist/acvm.esm.js",
+  "browser": "dist/acvm.umd.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "rollup": "^3.14.0",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5"
+  }
 }
